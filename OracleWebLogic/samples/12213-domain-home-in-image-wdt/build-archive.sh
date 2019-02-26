@@ -10,7 +10,7 @@
 #                        this variable to a valid Java 8 (or later) JDK.
 #
 
-if [ -z ${JAVA_HOME} ] || [ ! -e ${JAVA_HOME}/bin/jar ]; then 
+if [ -z ${JAVA_HOME} ] || [ ! -e ${JAVA_HOME}/bin/jar ]; then
    echo "JAVA_HOME must be set to version of a java JDK 1.8 or greater"
    exit 1
 fi
@@ -25,5 +25,5 @@ fi
 
 rm -Rf ${scriptDir}/archive
 mkdir -p ${scriptDir}/archive/wlsdeploy/applications
-${JAVA_HOME}/bin/jar cvf ${scriptDir}/archive/wlsdeploy/applications/simple-app.war -C ${scriptDir} simple-app/* 
+${JAVA_HOME}/bin/jar cvf ${scriptDir}/archive/wlsdeploy/applications/simple-app.war -C ${scriptDir}/simple-app .
 ${JAVA_HOME}/bin/jar cvf ${scriptDir}/archive.zip  -C ${scriptDir}/archive wlsdeploy
